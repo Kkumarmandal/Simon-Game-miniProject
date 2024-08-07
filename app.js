@@ -4,6 +4,7 @@ let btns = ["yellow", "red", "purple", "green"];
 
 let gameStarted = false;
 let level = 0;
+let highestScore = 0;
 
 let h2 = document.querySelector ("h2");
 
@@ -35,7 +36,7 @@ function levelUp (){
 
     level++;   
     
-    h2.innerText = `Level ${level}`;
+    h2.innerText = `Level ${level} <br> Highest Score is ${highestScore}`;
     
     //random button choose
     let ranIdx = Math.floor (Math.random ()*3); //random ind choose karege 0-3 tak
@@ -47,6 +48,10 @@ function levelUp (){
     gameSeq.push (ranColor);
     console.log (gameSeq);
     gameButnFlash (ranBtn);  
+    
+     if (highestScore < level){
+        highestScore ++;
+    }
 }
 
 function checkAns (idx){
